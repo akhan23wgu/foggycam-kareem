@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM alpine:latest
 
 RUN apk update && apk add bash
 RUN apk add git --no-cache gcc python3 python3-dev linux-headers libffi-dev mus$ python3 -m ensurepip
