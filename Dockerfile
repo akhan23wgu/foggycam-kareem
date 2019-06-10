@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 
-RUN apk update
-RUN apk upgrade
+RUN apk update && apk add bash
 RUN apk add git --no-cache gcc python3 python3-dev linux-headers libffi-dev mus$ python3 -m ensurepip
 RUN rm -r /usr/lib/python*/ensurepip
 RUN pip3 install --upgrade pip setuptools \
