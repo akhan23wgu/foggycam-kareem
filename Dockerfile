@@ -24,7 +24,6 @@ WORKDIR /root
 CMD ["bash"]
 
 RUN mkdir /root/src
-ADD config.json /root
 RUN mkdir /config
 RUN touch /config/config.json
 RUN ln -s /config/config.json /root/config.json
