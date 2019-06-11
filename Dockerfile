@@ -8,11 +8,11 @@ RUN \
   apt-get install -y software-properties-common && \
   apt-get install -y byobu curl git htop man unzip vim wget && \
   apt-get install -y ffmpeg && \
-  apt-get install -y python-pip python-dev && \
+  apt-get install -y python3-pip python-dev && \
   pip install --upgrade pip && \
   rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip setuptools
+RUN pip3 install --upgrade pip setuptools
 RUN ln -sf /usr/bin/python3 /usr/bin/python
 RUN rm -r /root/.cache
 RUN git clone https://github.com/dend/foggycam
