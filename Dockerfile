@@ -20,8 +20,8 @@ ENV HOME /root
 # Define working directory.
 WORKDIR /root
 
-ADD src/ .
-ADD config.json .
+ADD src/ /root
+ADD config.json /root
 
 # Define default command.
 CMD ["bash"]
