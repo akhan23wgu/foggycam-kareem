@@ -23,9 +23,7 @@ WORKDIR /root
 # Define default command.
 CMD ["bash"]
 
-RUN mkdir /root/src
-RUN mkdir /config
-RUN touch /config/config.json
-RUN ln -s /config/config.json /root/config.json
+ADD src/ ./src
+ADD config.json ./
 
 ENTRYPOINT cd src && pip install -r requirements.txt && python start.py && /bin/bash
