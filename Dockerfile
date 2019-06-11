@@ -12,7 +12,7 @@ RUN \
   pip install --upgrade pip && \
   rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade pip setuptools
+RUN pip install --upgrade pip setuptools
 RUN ln -sf /usr/bin/python3 /usr/bin/python
 RUN rm -r /root/.cache
 RUN git clone https://github.com/dend/foggycam
