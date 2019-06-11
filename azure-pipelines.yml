@@ -5,6 +5,6 @@ variables:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHub'
-    repository: 'foggycam-kareem'
+    repository: 'akhan23'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
