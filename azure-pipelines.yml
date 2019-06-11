@@ -1,14 +1,11 @@
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DockerHub'
-    repository: 'foggycam-kareem'
-    command: 'build'
-    Dockerfile: '**/Dockerfile'
-    tags: 'akhan23\foggycam-kareem:$(Build.BuildId)'
+variables:
+  dockerId: akhan23  # Replace with your Docker ID for Docker Hub or the admin user name for the Azure Container Registry
+  imageName: foggycam-kareem  # Replace with the name of the image you want to publish
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DockerHub'
-    repository: 'foggycam-kareem'
-    command: 'push'
-    tags: 'akhan23\foggycam-kareem:$(Build.BuildId)'
+steps:
+- script: |
+    docker build -t $(dockerId)/$(imageName) .
+    docker login -u $(dockerId) -p $(pswd)
+    docker push $(dockerId)/$(imageName)
+  env:
+    pswd: $(dockerPassword)        # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
