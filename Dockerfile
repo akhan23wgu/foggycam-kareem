@@ -9,8 +9,8 @@ RUN ln -sf /usr/bin/python3 /usr/bin/python
 RUN rm -r /root/.cache
 RUN git clone https://github.com/dend/foggycam
 RUN cd /foggycam/src/ \
-    && pip install -r requirements.txt \
-    && mkdir /config
+    && pip install -r requirements.txt
+RUN mkdir /config
 RUN touch /config/config.json
 RUN ln -s /config/config.json /foggycam/config.json
 
