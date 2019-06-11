@@ -5,13 +5,15 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  dockerId: akhan23  # Replace with your Docker ID for Docker Hub or the admin user name for the Azure Container Registry
   imageName: 'foggycam-kareem:$(build.buildID)'
 
 steps:
-- script: |
-    docker build -t $(dockerId)/$(imageName) .
-    docker login -u $(dockerId) -p $(pswd)
-    docker push $(dockerId)/$(imageName)
-  env:
-    pswd: $(dockerPassword)        # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
+- script: docker build -f Dockerfile -t $(imageName) .
+	  displayName: 'docker build'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub'
+    repository: 'akhan23/foggycam-kareem'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
