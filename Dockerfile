@@ -12,8 +12,6 @@ RUN \
   pip install --upgrade pip && \
   rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m ensurepip
-RUN rm -r /usr/lib/python*/ensurepip
 RUN pip3 install --upgrade pip setuptools
 RUN ln -sf /usr/bin/python3 /usr/bin/python
 RUN rm -r /root/.cache
