@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
-RUN apt-get -y update \
-    && apt-get upgrade
+RUN apt-get update
+RUN apt-get -y upgrade
 RUN apt-get install -y git gcc python3 python3-dev linux-headers libffi-dev
 RUN python3 -m ensurepip
 RUN rm -r /usr/lib/python*/ensurepip
