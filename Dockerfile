@@ -1,7 +1,8 @@
-FROM alpine:latest
+FROM ubuntu:16.04
 
-RUN apk update && apk add bash
-RUN apk add git --no-cache gcc python3 python3-dev linux-headers libffi-dev
+RUN apt-get update -y \
+    && apt-get upgrade
+RUN apt-get install git gcc python3 python3-dev linux-headers libffi-dev -y
 RUN python3 -m ensurepip
 RUN rm -r /usr/lib/python*/ensurepip
 RUN pip3 install --upgrade pip setuptools
