@@ -23,7 +23,7 @@ WORKDIR /root
 # Define default command.
 CMD ["bash"]
 
-ADD src/
+ADD src/ ./
 ADD config.json ./
 
 ENTRYPOINT cd src && pip install -r requirements.txt && python start.py && /bin/bash
