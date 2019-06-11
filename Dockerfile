@@ -25,7 +25,5 @@ CMD ["bash"]
 
 ADD src/ ./src
 ADD config.json ./
-|}L:'
-=
-==
-ENTRYPOINT cd src && pip install -r requirements.txt && python start.py && /bin/bas'ik,-
+
+ENTRYPOINT cd src && pip install -r requirements.txt && python start.py && /bin/bash
