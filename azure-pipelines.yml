@@ -14,5 +14,13 @@ steps:
   inputs:
     containerRegistry: 'DockerHub'
     repository: 'foggycam-kareem'
-    command: 'buildAndPush'
+    command: 'build'
     Dockerfile: '**/Dockerfile'
+    tags: 'akhan23\foggycam-kareem:$(Build.BuildId)'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHub'
+    repository: 'foggycam-kareem'
+    command: 'push'
+    tags: 'akhan23\foggycam-kareem:$(Build.BuildId)'
