@@ -1,10 +1,12 @@
-variables:
-  dockerId: akhan23  # Replace with your Docker ID for Docker Hub or the admin user name for the Azure Container Registry
-  imageName: foggycam-kareem  # Replace with the name of the image you want to publish
+trigger:
+- master
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'DockerHub'
-    repository: 'akhan23\foggycam-kareem'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  imageName: 'foggycam-kareem:$build.buildID)'
+
+steps:
+- script: docker build -f Dockerfile -t $(imageName) .
+  displayName: 'docker build'
