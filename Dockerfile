@@ -1,8 +1,8 @@
 FROM ubuntu:16.04
 
-RUN apt-get update -y \
+RUN apt-get -y update \
     && apt-get upgrade
-RUN apt-get install git gcc python3 python3-dev linux-headers libffi-dev -y
+RUN apt-get install -y git gcc python3 python3-dev linux-headers libffi-dev
 RUN python3 -m ensurepip
 RUN rm -r /usr/lib/python*/ensurepip
 RUN pip3 install --upgrade pip setuptools
