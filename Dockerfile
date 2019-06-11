@@ -24,6 +24,6 @@ WORKDIR /root
 CMD ["bash"]
 
 RUN mkdir /root/src
-ADD /root/config.json 
+ADD config.json /root
 
 ENTRYPOINT cd src && pip install -r requirements.txt && python start.py && /bin/bash
