@@ -20,10 +20,10 @@ ENV HOME /root
 # Define working directory.
 WORKDIR /root
 
+ADD src/ /root/
+ADD config.json /root/
+
 # Define default command.
 CMD ["bash"]
-
-ADD src/ ./src
-ADD config.json ./
 
 ENTRYPOINT cd /root/src && pip install -r requirements.txt && python start.py && /bin/bash
